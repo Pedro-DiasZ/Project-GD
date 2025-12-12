@@ -1,7 +1,10 @@
-    * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
 }
 html, body {
     height: 100%;
@@ -32,12 +35,36 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo img {
     height: 100px;
     margin: 10px;
-    align-items: center;
+}
+
+.navbar-link {
+    position: absolute;
+    right: 20px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #9CA3AF;
 }
 
 .title {
@@ -54,7 +81,9 @@ body h2 {
     font-weight: 200;
     color: white;
     text-align: center;
-    margin: 20px 100px;   
+    margin: 20px auto;
+    padding: 0 20px;
+    max-width: 1200px;
 }
 
 .footer {
@@ -122,8 +151,9 @@ body h2 {
 
 .container {
     width: 100%;
-    height: 500px;
+    min-height: 500px;
     background-color: var(--bg-navbar);
+    padding: 40px 20px;
 }
 
 .contato {
@@ -137,11 +167,11 @@ body h2 {
 
 .contato-info {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     margin-top: 40px;
-    flex-wrap: wrap;
 }
 
 .info-item {
@@ -175,6 +205,7 @@ body h2 {
     position: relative;
     width: 100%;
     height: 450px;
+    min-height: 300px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
@@ -207,6 +238,11 @@ body h2 {
     transition: all 0.3s ease;
     z-index: 10;
     font-weight: bold;
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carrossel-btn:hover {
@@ -247,4 +283,263 @@ body h2 {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
+/* RESPONSIVIDADE */
+
+/* Tablets pequenos (600px até 768px) */
+@media (max-width: 600px) and (min-width: 481px) {
+    .title {
+        font-size: 22px;
+        margin-top: 25px;
+    }
+
+    body h2 {
+        font-size: 13px;
+        margin: 15px auto;
+    }
+
+    .carrossel {
+        height: 250px;
+    }
+
+    .carrossel-btn {
+        padding: 12px 14px;
+        font-size: 18px;
+    }
+}
+
+/* Tablets (768px até 1024px) */
+@media (max-width: 1024px) {
+    .grid-servicos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px;
+    }
+
+    body h2 {
+        margin: 20px 50px;
+    }
+
+    .carrossel {
+        height: 350px;
+    }
+}
+
+/* Smartphones (até 768px) */
+@media (max-width: 768px) {
+    .title {
+        font-size: 24px;
+        margin-top: 30px;
+        letter-spacing: 2px;
+    }
+
+    body h2 {
+        font-size: 14px;
+        margin: 15px auto;
+        padding: 0 20px;
+    }
+
+    .orders {
+        font-size: 20px;
+        margin-top: 80px;
+    }
+
+    .logo img {
+        height: 70px;
+        margin: 8px;
+    }
+
+    .grid-servicos {
+        grid-template-columns: 1fr;
+        gap: 30px 20px;
+        padding: 40px 20px;
+    }
+
+    .item-servico img {
+        width: 50px;
+    }
+
+    .item-servico p {
+        font-size: 14px;
+    }
+
+    .carrossel-container {
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+
+    .carrossel {
+        height: 280px;
+        border-radius: 8px;
+    }
+
+    .carrossel-btn {
+        padding: 12px 15px;
+        font-size: 20px;
+        min-width: 45px;
+        min-height: 45px;
+    }
+
+    .carrossel-btn.prev {
+        left: 15px;
+    }
+
+    .carrossel-btn.next {
+        right: 15px;
+    }
+
+    .container {
+        min-height: auto;
+        padding: 50px 20px;
+    }
+
+    .contato {
+        font-size: 20px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+    .contato-info {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .info-item {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .contact-link {
+        display: block;
+        padding: 10px;
+    }
+
+    .titulo-servicos {
+        font-size: 20px;
+        letter-spacing: 4px;
+        margin-bottom: 40px;
+    }
+
+    .footer {
+        padding: 15px 10px;
+        font-size: 12px;
+    }
+}
+
+/* Smartphones pequenos (até 480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 20px;
+        margin-top: 20px;
+        letter-spacing: 1px;
+    }
+
+    body h2 {
+        font-size: 12px;
+        margin: 10px 15px;
+        font-weight: 100;
+    }
+
+    .orders {
+        font-size: 18px;
+        margin-top: 60px;
+    }
+
+    .logo img {
+        height: 60px;
+        margin: 5px;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+
+    .grid-servicos {
+        gap: 25px 15px;
+        padding: 30px 15px;
+    }
+
+    .item-servico img {
+        width: 45px;
+        margin-bottom: 15px;
+    }
+
+    .item-servico p {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .carrossel {
+        height: 200px;
+    }
+
+    .carrossel-indicators {
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+
+    .container {
+        padding: 40px 15px;
+    }
+
+    .contato {
+        font-size: 18px;
+        padding-top: 20px;
+    }
+
+    .contato-info {
+        gap: 15px;
+    }
+
+    .contact-link {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .titulo-servicos {
+        font-size: 18px;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 12px 10px;
+        font-size: 11px;
+    }
+}
+
+.cnpj {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    color: white;
+    text-align: center;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-size: 14px;
+}
+
+.navbar h2 {
+    font-family: 'Montesserat', sans-serif;
+    font-weight: 200;
+    color: white;
+    display: flex;
+    justify-content: end;
+    margin: 10px auto;
+    padding: 0 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.navbar h2:hover {
+    color: #3A4750;
+}
 
