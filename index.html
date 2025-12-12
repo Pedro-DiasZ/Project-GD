@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Empreiteira DJPina</title>
+</head>
+<body>
+    <main>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="./assets/logo.png" alt="DJPina logo" />
+            </a>
+        </div>
+    </nav>
+
+    <h1 class="title">Reformas de ótima qualidade e padrão</h1>
+    <h2>Cada projeto é conduzido com acompanhamento técnico e planejamento estratégico, garantindo precisão nas etapas e redução de falhas.</h2>
+    <h2>Da construção à entrega: tornamos sua obra mais tranquila, previsível e bem executada.</h2>
+
+    <h2 class="orders">Obras realizadas:</h2>
+    
+    <div class="carrossel-container">
+        <div class="carrossel">
+            <img src="./assets/imagemcarrossel1.png" alt="Obra 1" class="slide active">
+            <img src="./assets/imagemcarrossel2.png" alt="Obra 2" class="slide">
+            <img src="./assets/imagemcarrossel3.png" alt="Obra 3" class="slide">
+        </div>
+
+        <button class="carrossel-btn prev" onclick="mudarSlide(-1)">&#10094;</button>
+        <button class="carrossel-btn next" onclick="mudarSlide(1)">&#10095;</button>
+
+        <div class="carrossel-indicators">
+            <span class="indicator active" onclick="irParaSlide(0)"></span>
+            <span class="indicator" onclick="irParaSlide(1)"></span>
+            <span class="indicator" onclick="irParaSlide(2)"></span>
+        </div>
+    </div>
+
+    <section class="servicos">
+    <h2 class="titulo-servicos">SERVIÇOS</h2>
+
+    <div class="grid-servicos">
+
+        <div class="item-servico">
+            <img src="./assets/icone1.png" alt="Assessoria para layout e decoração">
+            <p>Assessoria para desenvolvimento de layout e decoração</p>
+        </div>
+
+        <div class="item-servico">
+            <img src="./assets/icone2.png" alt="Projetos de arquitetura de interiores">
+            <p>Concepção de projetos de arquitetura de interiores</p>
+        </div>
+
+        <div class="item-servico">
+            <img src="./assets/icone3.png" alt="Composição de custos">
+            <p>Composição de custos para estimar o valor da obra</p>
+        </div>
+
+        <div class="item-servico">
+            <img src="./assets/icone4.png" alt="Assessoria presencial para compra de materiais">
+            <p>Assessoria presencial para compra de materiais, móveis etc.</p>
+        </div>
+
+        <div class="item-servico">
+            <img src="./assets/icone5.png" alt="Indicação de parceiros">
+            <p>Indicação de parceiros para execução da obra</p>
+        </div>
+
+        <div class="item-servico">
+            <img src="./assets/icone6.png" alt="Acompanhamento de obras">
+            <p>Acompanhamento de obras</p>
+        </div>
+
+        <div class="item-servico">
+            <img src="./assets/icone7.png" alt="Produção de ambientes">
+            <p>Produção de ambientes</p>
+        </div>
+
+        <div class="item-servico">
+            <img src="./assets/icone8.png" alt="Atendimento personalizado">
+            <p>Atendimento personalizado</p>
+        </div>
+
+    </div>
+</section>
+
+<div class="container">
+    <h2 class="contato">Contato</h2>
+    
+    <div class="contato-info">
+        <div class="info-item">
+            <a href="https://wa.me/5511999623669" target="_blank" class="contact-link">(11) 99962-3669</a>
+        </div>
+        
+        <div class="info-item">
+            <a href="https://wa.me/5511999617854" target="_blank" class="contact-link">(11) 99961-7854</a>
+        </div>
+        
+        <div class="info-item">
+            <a href="mailto:gd4153671@gmail.com" class="contact-link">gd4153671@gmail.com</a>
+        </div>
+    </div>
+</div>
+</main>
+
+    <footer class="footer">
+        <p>© 2025 Empreiteira DJPina. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
