@@ -543,3 +543,28 @@ body h2 {
     color: #3A4750;
 }
 
+.whatsapp-float {
+    position: fixed;          /* segue o scroll */
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 28px;
+    height: 28px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
