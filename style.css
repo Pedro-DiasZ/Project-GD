@@ -193,6 +193,19 @@ body h2 {
     border-bottom-color: #3A4750;
 }
 
+.logo-contato {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.logo-contato img {
+    height: 80px;
+    width: auto;
+}
+
 /* CARROSSEL STYLES */
 .carrossel-container {
     position: relative;
