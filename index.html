@@ -26,21 +26,45 @@
     <h2>Da construção à entrega: tornamos sua obra mais tranquila, previsível e bem executada.</h2>
 
     <h2 class="orders">Obras realizadas:</h2>
-    
-    <div class="carrossel-container">
-        <div class="carrossel">
-            <img src="./assets/imagemcarrossel1.png" alt="Obra 1" class="slide active">
-            <img src="./assets/imagemcarrossel2.png" alt="Obra 2" class="slide">
-            <img src="./assets/imagemcarrossel3.png" alt="Obra 3" class="slide">
+
+    <div class="carrossel-row">
+        <!-- Sala / Quarto -->
+        <div class="carrossel-container" data-name="sala">
+            <h3 class="carousel-title">SALAS</h3>
+            <div class="carrossel">
+                <img src="./assets/imagemcarrossel1sala.png" alt="Sala 1" class="slide active">
+                <img src="./assets/imagemcarrossel4quarto.png" alt="Sala 2" class="slide">
+            </div>
+            <button class="carrossel-btn prev">&#10094;</button>
+            <button class="carrossel-btn next">&#10095;</button>
+            <div class="carrossel-indicators"></div>
         </div>
 
-        <button class="carrossel-btn prev" onclick="mudarSlide(-1)">&#10094;</button>
-        <button class="carrossel-btn next" onclick="mudarSlide(1)">&#10095;</button>
+        <!-- Cozinha -->
+        <div class="carrossel-container" data-name="cozinha">
+            <h3 class="carousel-title">COZINHAS</h3>
+            <div class="carrossel">
+                <img src="./assets/imagemcarrossel1cozinha.png" alt="Cozinha 1" class="slide active">
+                <img src="./assets/imagemcarrossel2cozinha.png" alt="Cozinha 2" class="slide">
+                <img src="./assets/imagemcarrossel3cozinha.png" alt="Cozinha 3" class="slide">
+            </div>
+            <button class="carrossel-btn prev">&#10094;</button>
+            <button class="carrossel-btn next">&#10095;</button>
+            <div class="carrossel-indicators"></div>
+        </div>
 
-        <div class="carrossel-indicators">
-            <span class="indicator active" onclick="irParaSlide(0)"></span>
-            <span class="indicator" onclick="irParaSlide(1)"></span>
-            <span class="indicator" onclick="irParaSlide(2)"></span>
+        <!-- Banheiro -->
+        <div class="carrossel-container" data-name="banheiro">
+            <h3 class="carousel-title">BANHEIROS</h3>
+            <div class="carrossel">
+                <img src="./assets/imagemcarrossel1banheiro.png" alt="Banheiro 1" class="slide active">
+                <img src="./assets/imagemcarrossel2banheiro.png" alt="Banheiro 2" class="slide">
+                <img src="./assets/imagemcarrossel3banheiro.png" alt="Banheiro 3" class="slide">
+                <img src="./assets/imagemcarrossel4banheiro.png" alt="Banheiro 4" class="slide">
+            </div>
+            <button class="carrossel-btn prev">&#10094;</button>
+            <button class="carrossel-btn next">&#10095;</button>
+            <div class="carrossel-indicators"></div>
         </div>
     </div>
 
