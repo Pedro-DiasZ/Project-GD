@@ -217,11 +217,37 @@ body h2 {
 .carrossel {
     position: relative;
     width: 100%;
-    height: 450px;
-    min-height: 300px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 550px; /* fallback limit on very large screens */
+    min-height: 180px; /* fallback on very small screens */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Row layout for multiple carousels */
+.carrossel-row {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+.carrossel-container {
+    flex: 1 1 300px;
+    max-width: 420px;
+    margin: 0;
+}
+
+.carousel-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
 }
 
 .slide {
@@ -311,7 +337,7 @@ body h2 {
     }
 
     .carrossel {
-        height: 250px;
+        max-height: 250px;
     }
 
     .carrossel-btn {
@@ -332,7 +358,7 @@ body h2 {
     }
 
     .carrossel {
-        height: 350px;
+        max-height: 350px;
     }
 }
 
@@ -379,8 +405,20 @@ body h2 {
         padding: 0 15px;
     }
 
+    .carrossel-row {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .carrossel-container {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 10px;
+    }
+
     .carrossel {
-        height: 280px;
+        max-height: 280px;
         border-radius: 8px;
     }
 
@@ -482,7 +520,7 @@ body h2 {
     }
 
     .carrossel {
-        height: 200px;
+        max-height: 200px;
     }
 
     .carrossel-indicators {
