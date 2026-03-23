@@ -4,154 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/favicon.png" type="image/png">
-
     <title>DJPina Empreitaria | Reformas com planejamento e padrão</title>
 </head>
 <body>
-    <main>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
     <nav class="navbar">
-        <div class="logo">
-            <a href="index.html">
+        <div class="nav-inner">
+            <a class="brand" href="index.html">
                 <img src="./assets/logo.png" alt="DJPina logo" />
             </a>
-            <a href="#secao-contato" class="navbar-link">Contato</a>
+            <div class="nav-links">
+                <a href="#obras">Obras</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#secao-contato" class="btn btn-sm">Contato</a>
+            </div>
         </div>
     </nav>
 
-    <h1 class="title">Reformas de ótima qualidade e padrão</h1>
-    <h2>Cada projeto é conduzido com acompanhamento técnico e planejamento estratégico, garantindo precisão nas etapas e redução de falhas.</h2>
-    <h2>Da construção à entrega: tornamos sua obra mais tranquila, previsível e bem executada.</h2>
-
-    <h2 class="orders">Obras realizadas:</h2>
-
-    <div class="carrossel-row">
-        <!-- Sala / Quarto -->
-        <div class="carrossel-container" data-name="sala">
-            <h3 class="carousel-title">SALAS</h3>
-            <div class="carrossel">
-                <img src="./assets/imagemcarrossel1sala.png" alt="Sala 1" class="slide active">
-                <img src="./assets/imagemcarrossel4quarto.png" alt="Sala 2" class="slide">
+    <main id="conteudo">
+        <section class="hero">
+            <div class="hero-content" data-reveal>
+                <p class="eyebrow">Reformas residenciais e comerciais</p>
+                <h1>Reformas de ótima qualidade e padrão</h1>
+                <p class="lead">Cada projeto é conduzido com acompanhamento técnico e planejamento estratégico, garantindo precisão nas etapas e redução de falhas.</p>
+                <p class="lead">Da construção à entrega: tornamos sua obra mais tranquila, previsível e bem executada.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#secao-contato">Solicitar orçamento</a>
+                    <a class="btn btn-ghost" href="#obras">Ver obras</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="badge">Planejamento técnico</div>
+                    <div class="badge">Cronograma claro</div>
+                    <div class="badge">Equipe qualificada</div>
+                </div>
             </div>
-            <button class="carrossel-btn prev">&#10094;</button>
-            <button class="carrossel-btn next">&#10095;</button>
-            <div class="carrossel-indicators"></div>
-        </div>
-
-        <!-- Cozinha -->
-        <div class="carrossel-container" data-name="cozinha">
-            <h3 class="carousel-title">COZINHAS</h3>
-            <div class="carrossel">
-                <img src="./assets/imagemcarrossel1cozinha.png" alt="Cozinha 1" class="slide active">
-                <img src="./assets/imagemcarrossel2cozinha.png" alt="Cozinha 2" class="slide">
-                <img src="./assets/imagemcarrossel3cozinha.png" alt="Cozinha 3" class="slide">
+            <div class="hero-card" data-reveal>
+                <h2>Como trabalhamos</h2>
+                <ul class="steps">
+                    <li><span>1</span>Diagnóstico e definição de escopo</li>
+                    <li><span>2</span>Orçamento transparente e detalhado</li>
+                    <li><span>3</span>Acompanhamento técnico contínuo</li>
+                    <li><span>4</span>Entrega com padrão e acabamento</li>
+                </ul>
             </div>
-            <button class="carrossel-btn prev">&#10094;</button>
-            <button class="carrossel-btn next">&#10095;</button>
-            <div class="carrossel-indicators"></div>
-        </div>
+        </section>
 
-        <!-- Banheiro -->
-        <div class="carrossel-container" data-name="banheiro">
-            <h3 class="carousel-title">BANHEIROS</h3>
-            <div class="carrossel">
-                <img src="./assets/imagemcarrossel1banheiro.png" alt="Banheiro 1" class="slide active">
-                <img src="./assets/imagemcarrossel2banheiro.png" alt="Banheiro 2" class="slide">
-                <img src="./assets/imagemcarrossel3banheiro.png" alt="Banheiro 3" class="slide">
-                <img src="./assets/imagemcarrossel4banheiro.png" alt="Banheiro 4" class="slide">
+        <section id="obras" class="section">
+            <div class="section-head" data-reveal>
+                <h2>Obras realizadas</h2>
+                <p>Ambientes planejados com atenção aos detalhes, conforto e durabilidade.</p>
             </div>
-            <button class="carrossel-btn prev">&#10094;</button>
-            <button class="carrossel-btn next">&#10095;</button>
-            <div class="carrossel-indicators"></div>
+
+            <div class="carrossel-row" data-reveal>
+                <div class="carrossel-container" data-name="sala">
+                    <h3 class="carousel-title">SALAS</h3>
+                    <div class="carrossel">
+                        <img src="./assets/imagemcarrossel1sala.png" alt="Sala 1" class="slide active">
+                        <img src="./assets/imagemcarrossel4quarto.png" alt="Sala 2" class="slide">
+                    </div>
+                    <button class="carrossel-btn prev" aria-label="Foto anterior">&#10094;</button>
+                    <button class="carrossel-btn next" aria-label="Próxima foto">&#10095;</button>
+                    <div class="carrossel-indicators"></div>
+                </div>
+
+                <div class="carrossel-container" data-name="cozinha">
+                    <h3 class="carousel-title">COZINHAS</h3>
+                    <div class="carrossel">
+                        <img src="./assets/imagemcarrossel1cozinha.png" alt="Cozinha 1" class="slide active">
+                        <img src="./assets/imagemcarrossel2cozinha.png" alt="Cozinha 2" class="slide">
+                        <img src="./assets/imagemcarrossel3cozinha.png" alt="Cozinha 3" class="slide">
+                    </div>
+                    <button class="carrossel-btn prev" aria-label="Foto anterior">&#10094;</button>
+                    <button class="carrossel-btn next" aria-label="Próxima foto">&#10095;</button>
+                    <div class="carrossel-indicators"></div>
+                </div>
+
+                <div class="carrossel-container" data-name="banheiro">
+                    <h3 class="carousel-title">BANHEIROS</h3>
+                    <div class="carrossel">
+                        <img src="./assets/imagemcarrossel1banheiro.png" alt="Banheiro 1" class="slide active">
+                        <img src="./assets/imagemcarrossel2banheiro.png" alt="Banheiro 2" class="slide">
+                        <img src="./assets/imagemcarrossel3banheiro.png" alt="Banheiro 3" class="slide">
+                        <img src="./assets/imagemcarrossel4banheiro.png" alt="Banheiro 4" class="slide">
+                    </div>
+                    <button class="carrossel-btn prev" aria-label="Foto anterior">&#10094;</button>
+                    <button class="carrossel-btn next" aria-label="Próxima foto">&#10095;</button>
+                    <div class="carrossel-indicators"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="section servicos">
+            <div class="section-head" data-reveal>
+                <h2>Serviços</h2>
+                <p>Do planejamento ao acabamento, cuidamos de cada etapa para você ter previsibilidade e tranquilidade.</p>
+            </div>
+
+            <div class="grid-servicos" data-reveal>
+                <div class="item-servico">
+                    <img src="./assets/icone1.png" alt="Assessoria para layout e decoração">
+                    <p>Assessoria para desenvolvimento de layout e decoração</p>
+                </div>
+                <div class="item-servico">
+                    <img src="./assets/icone2.png" alt="Projetos de arquitetura de interiores">
+                    <p>Concepção de projetos de arquitetura de interiores</p>
+                </div>
+                <div class="item-servico">
+                    <img src="./assets/icone3.png" alt="Composição de custos">
+                    <p>Composição de custos para estimar o valor da obra</p>
+                </div>
+                <div class="item-servico">
+                    <img src="./assets/icone4.png" alt="Assessoria presencial para compra de materiais">
+                    <p>Assessoria presencial para compra de materiais, móveis etc.</p>
+                </div>
+                <div class="item-servico">
+                    <img src="./assets/icone5.png" alt="Indicação de parceiros">
+                    <p>Indicação de parceiros para execução da obra</p>
+                </div>
+                <div class="item-servico">
+                    <img src="./assets/icone6.png" alt="Acompanhamento de obras">
+                    <p>Acompanhamento de obras</p>
+                </div>
+                <div class="item-servico">
+                    <img src="./assets/icone7.png" alt="Produção de ambientes">
+                    <p>Produção de ambientes</p>
+                </div>
+                <div class="item-servico">
+                    <img src="./assets/icone8.png" alt="Atendimento personalizado">
+                    <p>Atendimento personalizado</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" data-reveal>
+            <div class="cta-card">
+                <h2>Pronto para transformar seu espaço?</h2>
+                <p>Fale com nossa equipe e receba um orçamento alinhado ao seu objetivo, prazo e investimento.</p>
+                <a class="btn btn-primary" href="https://wa.me/5511996178542" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+            </div>
+        </section>
+
+        <section class="container" id="secao-contato">
+            <div class="section-head" data-reveal>
+                <h2>Contato</h2>
+                <p>Escolha o canal ideal e falaremos com você rapidamente.</p>
+            </div>
+
+            <div class="contato-info" data-reveal>
+                <a class="contact-card" href="https://wa.me/5511996178542" target="_blank" rel="noopener">
+                    <span>WhatsApp</span>
+                    <strong>(11) 99617-8542</strong>
+                    <small>Atendimento rápido</small>
+                </a>
+                <a class="contact-card" href="https://wa.me/5511996238669" target="_blank" rel="noopener">
+                    <span>WhatsApp</span>
+                    <strong>(11) 99623-8669</strong>
+                    <small>Suporte direto</small>
+                </a>
+                <a class="contact-card" href="mailto:gd4153671@gmail.com">
+                    <span>E-mail</span>
+                    <strong>gd4153671@gmail.com</strong>
+                    <small>Retorno em horário comercial</small>
+                </a>
+            </div>
+
+            <div class="logo-contato" data-reveal>
+                <img src="./assets/favicon.png" alt="DJPina logo" />
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="cnpj">CNPJ: 12.345.678/0001-90</div>
+            <p>© 2025 Empreiteira DJPina. Todos os direitos reservados.</p>
         </div>
-    </div>
-
-    <section class="servicos">
-    <h2 class="titulo-servicos">SERVIÇOS</h2>
-
-    <div class="grid-servicos">
-
-        <div class="item-servico">
-            <img src="./assets/icone1.png" alt="Assessoria para layout e decoração">
-            <p>Assessoria para desenvolvimento de layout e decoração</p>
-        </div>
-
-        <div class="item-servico">
-            <img src="./assets/icone2.png" alt="Projetos de arquitetura de interiores">
-            <p>Concepção de projetos de arquitetura de interiores</p>
-        </div>
-
-        <div class="item-servico">
-            <img src="./assets/icone3.png" alt="Composição de custos">
-            <p>Composição de custos para estimar o valor da obra</p>
-        </div>
-
-        <div class="item-servico">
-            <img src="./assets/icone4.png" alt="Assessoria presencial para compra de materiais">
-            <p>Assessoria presencial para compra de materiais, móveis etc.</p>
-        </div>
-
-        <div class="item-servico">
-            <img src="./assets/icone5.png" alt="Indicação de parceiros">
-            <p>Indicação de parceiros para execução da obra</p>
-        </div>
-
-        <div class="item-servico">
-            <img src="./assets/icone6.png" alt="Acompanhamento de obras">
-            <p>Acompanhamento de obras</p>
-        </div>
-
-        <div class="item-servico">
-            <img src="./assets/icone7.png" alt="Produção de ambientes">
-            <p>Produção de ambientes</p>
-        </div>
-
-        <div class="item-servico">
-            <img src="./assets/icone8.png" alt="Atendimento personalizado">
-            <p>Atendimento personalizado</p>
-        </div>
-
-    </div>
-</section>
-
-<div class="container" id="secao-contato">
-    <h2 class="contato">Contato</h2>
-    
-    <div class="contato-info">
-        <div class="info-item">
-            <a href="https://wa.me/5511996178542" target="_blank" class="contact-link">(11) 99617-8542</a>
-        </div>
-        
-        <div class="info-item">
-            <a href="https://wa.me/5511996238669" target="_blank" class="contact-link">(11) 99623-8669</a>
-        </div>
-        
-        <div class="info-item">
-            <a href="mailto:gd4153671@gmail.com" class="contact-link">gd4153671@gmail.com</a>
-        </div>
-    </div>
-    
-    <div class="logo-contato">
-        <img src="./assets/favicon.png" alt="DJPina logo" />
-    </div>
-</div>
-
-<a href="https://wa.me/5511996178542" 
-   class="whatsapp-float" 
-   target="_blank" 
-   aria-label="Falar no WhatsApp">
-    <img src="./assets/zap.png" alt="WhatsApp">
-</a>
-
-</main>
-
-    <footer clas11996178542       <div class="cnpj">CNPJ: 12.345.678/0001-90</div>
-        <p>© 2025 Empreiteira DJPizap.pngos os direitos reservados.</p>
     </footer>
 
+    <a href="https://wa.me/5511996178542" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <img src="./assets/zap.png" alt="WhatsApp">
+    </a>
+
     <script src="script.js"></script>
-    
 </body>
 </html>
+
