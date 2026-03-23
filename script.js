@@ -1,13 +1,13 @@
-// Multi-carousel implementation
+// Multi-carousel implementation and reveal animations
 document.addEventListener('DOMContentLoaded', () => {
     initCarousels();
+    initReveal();
 });
 
 function initCarousels() {
     const containers = document.querySelectorAll('.carrossel-container');
-    const instances = [];
 
-    containers.forEach((container, idx) => {
+    containers.forEach((container) => {
         const carousel = container.querySelector('.carrossel');
         const slides = Array.from(carousel.querySelectorAll('.slide'));
         const prevBtn = container.querySelector('.carrossel-btn.prev');
@@ -16,7 +16,6 @@ function initCarousels() {
 
         if (slides.length === 0) return;
 
-        // build indicators
         indicatorsWrap.innerHTML = '';
         slides.forEach((s, i) => {
             const dot = document.createElement('span');
@@ -49,8 +48,10 @@ function initCarousels() {
         container.addEventListener('mouseenter', stopAutoplay);
         container.addEventListener('mouseleave', startAutoplay);
 
-        // touch support
-        carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
         carousel.addEventListener('touchend', (e) => {
             const touchEndX = e.changedTouches[0].screenX;
             const diff = touchStartX - touchEndX;
@@ -58,7 +59,7 @@ function initCarousels() {
                 if (diff > 0) next(); else prev();
                 restartAutoplay();
             }
-        }, {passive:true});
+        }, { passive: true });
 
         function startAutoplay() {
             stopAutoplay();
@@ -71,17 +72,38 @@ function initCarousels() {
 
         function restartAutoplay() { stopAutoplay(); startAutoplay(); }
 
-        // keyboard navigation when container is focused (optional)
         container.tabIndex = 0;
         container.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') { prev(); restartAutoplay(); }
             if (e.key === 'ArrowRight') { next(); restartAutoplay(); }
         });
 
-        // start
         show(0);
         startAutoplay();
-
-        instances.push({ container, carousel, slides });
     });
 }
+
+function initReveal() {
+    const revealItems = document.querySelectorAll('[data-reveal]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+        revealItems.forEach((el) => el.classList.add('reveal', 'is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal', 'is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealItems.forEach((el) => {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
+}
+
