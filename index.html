@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,13 @@
             <div class="nav-links">
                 <a href="#obras">Obras</a>
                 <a href="#servicos">Serviços</a>
+                <a href="#avaliacoes">Avaliações</a>
                 <a href="#secao-contato" class="btn btn-sm">Contato</a>
+                <!-- Toggle Dark/Light -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                    <span class="theme-icon theme-icon-light">☀️</span>
+                    <span class="theme-icon theme-icon-dark">🌙</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -139,6 +145,71 @@
             </div>
         </section>
 
+        <!-- ==================== SEÇÃO DE AVALIAÇÕES ==================== -->
+        <section id="avaliacoes" class="section avaliacoes-section">
+            <div class="section-head" data-reveal>
+                <h2>Avaliações</h2>
+                <p>Veja o que nossos clientes dizem sobre o trabalho da DJPina.</p>
+            </div>
+
+            <!-- Resumo geral de estrelas -->
+            <div class="rating-summary" data-reveal>
+                <div class="rating-score" id="ratingScore">—</div>
+                <div class="rating-stars-display" id="ratingStarsDisplay">
+                    <span class="star-empty">★★★★★</span>
+                </div>
+                <div class="rating-count" id="ratingCount">Nenhuma avaliação ainda</div>
+            </div>
+
+            <!-- Formulário de nova avaliação -->
+            <div class="review-form-wrapper" data-reveal>
+                <h3>Deixe sua avaliação</h3>
+                <div class="review-form">
+                    <div class="form-row">
+                        <input
+                            type="text"
+                            id="reviewName"
+                            placeholder="Seu nome"
+                            maxlength="60"
+                            autocomplete="name"
+                        />
+                    </div>
+                    <div class="form-row">
+                        <div class="star-picker" id="starPicker" role="radiogroup" aria-label="Escolha uma nota de 1 a 5 estrelas">
+                            <button class="star-btn" data-value="1" aria-label="1 estrela">★</button>
+                            <button class="star-btn" data-value="2" aria-label="2 estrelas">★</button>
+                            <button class="star-btn" data-value="3" aria-label="3 estrelas">★</button>
+                            <button class="star-btn" data-value="4" aria-label="4 estrelas">★</button>
+                            <button class="star-btn" data-value="5" aria-label="5 estrelas">★</button>
+                        </div>
+                        <span class="star-label" id="starLabel">Selecione uma nota</span>
+                    </div>
+                    <div class="form-row">
+                        <textarea
+                            id="reviewComment"
+                            placeholder="Conte sua experiência com a DJPina..."
+                            maxlength="400"
+                            rows="4"
+                        ></textarea>
+                        <div class="char-count"><span id="charCount">0</span>/400</div>
+                    </div>
+                    <button class="btn btn-primary btn-review-submit" id="submitReview">
+                        Enviar avaliação
+                    </button>
+                    <p class="form-feedback" id="formFeedback"></p>
+                </div>
+            </div>
+
+            <!-- Lista de avaliações -->
+            <div class="reviews-list" id="reviewsList" data-reveal>
+                <!-- Reviews são inseridos via JS -->
+                <div class="reviews-empty" id="reviewsEmpty">
+                    <p>Seja o primeiro a avaliar!</p>
+                </div>
+            </div>
+        </section>
+        <!-- ============================================================= -->
+
         <section class="cta" data-reveal>
             <div class="cta-card">
                 <h2>Pronto para transformar seu espaço?</h2>
@@ -191,4 +262,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
