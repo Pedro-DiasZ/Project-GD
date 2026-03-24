@@ -482,8 +482,8 @@ h1 {
 }
 
 .contact-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: color-mix(in srgb, var(--bg) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
     border-radius: var(--radius-md);
     padding: 18px;
     display: grid;
@@ -493,23 +493,25 @@ h1 {
 
 .contact-card:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.16);
+    background: color-mix(in srgb, var(--bg) 16%, transparent);
 }
 
 .contact-card span {
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--bg);
+    opacity: 0.7; 
 }
 
 .contact-card strong {
     font-size: 16px;
-    color: #fff;
+    color: var(--bg); 
 }
 
 .contact-card small {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--bg);
+    opacity: 0.7;
 }
 
 .logo-contato {
