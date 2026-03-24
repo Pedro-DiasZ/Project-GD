@@ -1,5 +1,5 @@
-const SUPABASE_URL = 'https://SEU-PROJECT.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_EnQoDimil2YObqKn3ac3uQ_0MnvMjul';
+const SUPABASE_URL      = 'https://zzvlhykklszxssftdvfk.supabase.co';  
+const SUPABASE_ANON_KEY = 'sb_publishable_EnQoDimil2YObqKn3ac3uQ_0MnvMjul'; 
 const SUPABASE_ENABLED  = true;
 
 async function supabaseFetch(path, options = {}) {
