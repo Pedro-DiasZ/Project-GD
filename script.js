@@ -1,5 +1,5 @@
-const SUPABASE_URL      = 'https://zzvlhykklszxssftdvfk.supabase.co';  
-const SUPABASE_ANON_KEY = 'sb_publishable_EnQoDimil2YObqKn3ac3uQ_0MnvMjul'; 
+const SUPABASE_URL      = 'https://zzvlhykklszxssftdvfk.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_EnQoDimil2YObqKn3ac3uQ_0MnvMjul';
 const SUPABASE_ENABLED  = true;
 
 async function supabaseFetch(path, options = {}) {
@@ -33,27 +33,20 @@ async function saveReviewToSupabase(review) {
 const LS_KEY = 'djpina_reviews';
 
 function loadReviewsLocal() {
-    try {
-        return JSON.parse(localStorage.getItem(LS_KEY)) || [];
-    } catch {
-        return [];
-    }
+    try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+    catch { return []; }
 }
 
 function saveReviewLocal(review) {
-    const reviews = loadReviewsLocal();
-    reviews.unshift(review);
-    localStorage.setItem(LS_KEY, JSON.stringify(reviews));
+    const all = loadReviewsLocal();
+    all.unshift(review);
+    localStorage.setItem(LS_KEY, JSON.stringify(all));
 }
 
 let reviews = [];
 
 async function loadReviews() {
-    if (SUPABASE_ENABLED) {
-        reviews = await loadReviewsFromSupabase();
-    } else {
-        reviews = loadReviewsLocal();
-    }
+    reviews = SUPABASE_ENABLED ? await loadReviewsFromSupabase() : loadReviewsLocal();
 }
 
 async function saveReview(review) {
@@ -71,19 +64,12 @@ async function saveReview(review) {
 const STAR_LABELS = ['', 'Ruim', 'Regular', 'Bom', 'Ótimo', 'Excelente'];
 
 function renderStars(count) {
-    const filled = '★'.repeat(count);
-    const empty  = '★'.repeat(5 - count);
-    return `<span class="stars-inner">${filled}</span><span class="stars-outer" style="color: var(--star-empty)">${empty}</span>`;
+    return `<span class="stars-inner">${'★'.repeat(count)}</span><span class="stars-outer" style="color:var(--star-empty)">${'★'.repeat(5 - count)}</span>`;
 }
 
 function formatDate(iso) {
-    try {
-        return new Date(iso).toLocaleDateString('pt-BR', {
-            day: '2-digit', month: 'short', year: 'numeric',
-        });
-    } catch {
-        return '';
-    }
+    try { return new Date(iso).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }); }
+    catch { return ''; }
 }
 
 function getInitials(name) {
@@ -91,12 +77,7 @@ function getInitials(name) {
 }
 
 function escapeHtml(str) {
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
 }
 
 function renderReviewCard(review) {
@@ -123,15 +104,13 @@ function updateRatingSummary() {
     const starsEl = document.getElementById('ratingStarsDisplay');
     const countEl = document.getElementById('ratingCount');
     if (!scoreEl) return;
-
     if (reviews.length === 0) {
         scoreEl.textContent = '—';
-        starsEl.innerHTML = '<span style="color: var(--star-empty)">★★★★★</span>';
+        starsEl.innerHTML = `<span style="color:var(--star-empty)">★★★★★</span>`;
         countEl.textContent = 'Nenhuma avaliação ainda';
         return;
     }
-
-    const avg = reviews.reduce((sum, r) => sum + r.stars, 0) / reviews.length;
+    const avg = reviews.reduce((s, r) => s + r.stars, 0) / reviews.length;
     scoreEl.textContent = (Math.round(avg * 10) / 10).toFixed(1);
     starsEl.innerHTML = renderStars(Math.round(avg));
     countEl.textContent = reviews.length === 1 ? '1 avaliação' : `${reviews.length} avaliações`;
@@ -141,14 +120,8 @@ function renderAllReviews() {
     const list  = document.getElementById('reviewsList');
     const empty = document.getElementById('reviewsEmpty');
     if (!list) return;
-
     list.querySelectorAll('.review-card').forEach(el => el.remove());
-
-    if (reviews.length === 0) {
-        if (empty) empty.style.display = '';
-        return;
-    }
-
+    if (reviews.length === 0) { if (empty) empty.style.display = ''; return; }
     if (empty) empty.style.display = 'none';
     reviews.forEach(r => list.appendChild(renderReviewCard(r)));
     updateRatingSummary();
@@ -164,16 +137,15 @@ function prependReviewCard(review) {
 }
 
 function initStarPicker() {
-    const picker  = document.getElementById('starPicker');
-    const label   = document.getElementById('starLabel');
+    const picker = document.getElementById('starPicker');
+    const label  = document.getElementById('starLabel');
     if (!picker) return;
-
     let selected = 0;
     const buttons = Array.from(picker.querySelectorAll('.star-btn'));
 
     function highlight(upTo) {
         buttons.forEach((btn, i) => {
-            btn.classList.toggle('hovered', i < upTo);
+            btn.classList.toggle('hovered',  i < upTo);
             btn.classList.toggle('selected', i < selected);
         });
     }
@@ -206,9 +178,7 @@ function initReviewForm() {
     const picker    = document.getElementById('starPicker');
     if (!submitBtn) return;
 
-    commentTA.addEventListener('input', () => {
-        charCount.textContent = commentTA.value.length;
-    });
+    commentTA.addEventListener('input', () => { charCount.textContent = commentTA.value.length; });
 
     submitBtn.addEventListener('click', async () => {
         const name    = nameInput.value.trim();
@@ -234,12 +204,10 @@ function initReviewForm() {
         try {
             await saveReview({ name, stars, comment });
             prependReviewCard(reviews[0]);
-
             nameInput.value = '';
             commentTA.value = '';
             charCount.textContent = '0';
             picker.reset();
-
             feedback.textContent = '✓ Avaliação enviada! Obrigado pelo feedback.';
             feedback.classList.add('success');
             setTimeout(() => { feedback.textContent = ''; }, 5000);
@@ -258,11 +226,9 @@ function initThemeToggle() {
     const btn  = document.getElementById('themeToggle');
     const html = document.documentElement;
     if (!btn) return;
-
     const saved = localStorage.getItem('djpina_theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     html.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
-
     btn.addEventListener('click', () => {
         const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', next);
@@ -277,7 +243,7 @@ function initCarousels() {
         const prevBtn        = container.querySelector('.carrossel-btn.prev');
         const nextBtn        = container.querySelector('.carrossel-btn.next');
         const indicatorsWrap = container.querySelector('.carrossel-indicators');
-        if (slides.length === 0) return;
+        if (!slides.length) return;
 
         indicatorsWrap.innerHTML = '';
         slides.forEach((s, i) => {
@@ -287,40 +253,34 @@ function initCarousels() {
             indicatorsWrap.appendChild(dot);
         });
 
-        let current = 0;
-        let autoplay = null;
-        let touchStartX = 0;
+        let current = 0, autoplay = null, touchStartX = 0;
 
         function show(n) {
             current = n >= slides.length ? 0 : n < 0 ? slides.length - 1 : n;
             slides.forEach((s, i) => s.classList.toggle('active', i === current));
             indicatorsWrap.querySelectorAll('.indicator').forEach((d, i) => d.classList.toggle('active', i === current));
         }
-
         function prev() { show(current - 1); }
         function next() { show(current + 1); }
         function goTo(i) { show(i); restartAutoplay(); }
-        function startAutoplay() { stopAutoplay(); autoplay = setInterval(() => next(), 3500); }
-        function stopAutoplay() { if (autoplay) { clearInterval(autoplay); autoplay = null; } }
+        function startAutoplay()   { stopAutoplay(); autoplay = setInterval(next, 3500); }
+        function stopAutoplay()    { if (autoplay) { clearInterval(autoplay); autoplay = null; } }
         function restartAutoplay() { stopAutoplay(); startAutoplay(); }
 
         prevBtn.addEventListener('click', () => { prev(); restartAutoplay(); });
         nextBtn.addEventListener('click', () => { next(); restartAutoplay(); });
         container.addEventListener('mouseenter', stopAutoplay);
         container.addEventListener('mouseleave', startAutoplay);
-
         carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-        carousel.addEventListener('touchend', (e) => {
+        carousel.addEventListener('touchend',   (e) => {
             const diff = touchStartX - e.changedTouches[0].screenX;
             if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); restartAutoplay(); }
         }, { passive: true });
-
         container.tabIndex = 0;
         container.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft')  { prev(); restartAutoplay(); }
             if (e.key === 'ArrowRight') { next(); restartAutoplay(); }
         });
-
         show(0);
         startAutoplay();
     });
@@ -339,14 +299,14 @@ function initReveal() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     items.forEach(el => { el.classList.add('reveal'); observer.observe(el); });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
     initThemeToggle();
-    initCarousels();
     initReveal();
+    initCarousels();
     initStarPicker();
     initReviewForm();
 
