@@ -145,11 +145,34 @@ a {
     letter-spacing: 0.4px;
 }
 
-.brand img {
-    height: 68px;
-    width: auto;
-    max-width: 230px;
-    object-fit: contain;
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.15;
+    border: 2px solid var(--accent);
+    padding: 8px 18px;
+    border-radius: 4px;
+    transition: border-color 0.35s ease;
+}
+
+.brand-logo-top {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    transition: color 0.35s ease;
+}
+
+.brand-logo-bottom {
+    font-family: "Manrope", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    transition: color 0.35s ease;
 }
 
 .nav-links {
@@ -922,13 +945,20 @@ h1 {
     }
 
     .brand {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
     }
 
-    .brand img {
-        height: 72px;
-        max-width: 240px;
+    .brand-logo {
+        padding: 6px 14px;
+    }
+
+    .brand-logo-top {
+        font-size: 1.1rem;
+    }
+
+    .brand-logo-bottom {
+        font-size: 0.65rem;
+        letter-spacing: 2.5px;
     }
 
     .hero-actions {
